@@ -1,11 +1,17 @@
-import React from 'react';
-import Dashboard from './components/Dashboard';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TrainerProvider from "./context/TrainerContext";
+import Home from "./Home";
 
-const App = ():JSX.Element => {
+
+const App = () => {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <TrainerProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+        </Routes>
+      </BrowserRouter>
+    </TrainerProvider>
   );
 };
 
