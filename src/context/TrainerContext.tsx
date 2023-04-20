@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { IData } from "../types";
 
 export const TrainerContext = createContext({});
 
@@ -15,12 +16,16 @@ export default function TrainerProvider({ children }: IProps) {
     setTrainers(results);
   };
 
+  const getTrainerId = (id: string) => {
+    return trainers?.find((value: IData) => value.id === id);
+  };
+
   useEffect(() => {
     getTrainer();
   }, []);
 
   return (
-    <TrainerContext.Provider value={{ trainers }}>
+    <TrainerContext.Provider value={{ trainers, getTrainerId }}>
       {children}
     </TrainerContext.Provider>
   );

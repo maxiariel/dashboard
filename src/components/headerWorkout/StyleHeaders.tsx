@@ -9,5 +9,10 @@ export const Header = styled.header`
   text-align: center;
   font-family: monospace;
   font-weight: bolder;
-  padding-top:30px;
+  padding-top: 30px;
+`;
+
+export const Home = styled.a`
+  text-decoration: none;
+  color: white;
 `;
